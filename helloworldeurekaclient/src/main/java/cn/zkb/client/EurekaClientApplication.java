@@ -19,6 +19,6 @@ public class EurekaClientApplication {
     String port;
     @RequestMapping("/")
     public String home(){
-        return "hello World form port"+port;
+        return "hello World form port is"+port;
     }
 }
