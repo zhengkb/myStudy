@@ -10,6 +10,8 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>helloworldeurekaclient</module>
+        <module>configServer</module>
+        <module>EurekaClient</module>
     </modules>
 
     <parent>

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/helloworldeurekaclient/helloworldeurekaclient.iml" filepath="$PROJECT_DIR$/helloworldeurekaclient/helloworldeurekaclient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EurekaClient/EurekaClient.iml" filepath="$PROJECT_DIR$/EurekaClient/EurekaClient.iml" />
       <module fileurl="file://$PROJECT_DIR$/sprcld.iml" filepath="$PROJECT_DIR$/sprcld.iml" />
     </modules>
   </component>
