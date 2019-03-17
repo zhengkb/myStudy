@@ -6,11 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="configureServer" />
         <module name="EurekaClient" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="configServer" target="1.8" />
+      <module name="configureServer" target="1.8" />
       <module name="EurekaClient" target="1.8" />
       <module name="helloworldeurekaclient" target="1.8" />
       <module name="sprcld" target="1.8" />

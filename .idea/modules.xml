@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/EurekaClient/EurekaClient.iml" filepath="$PROJECT_DIR$/EurekaClient/EurekaClient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/configureServer/configureServer.iml" filepath="$PROJECT_DIR$/configureServer/configureServer.iml" />
       <module fileurl="file://$PROJECT_DIR$/sprcld.iml" filepath="$PROJECT_DIR$/sprcld.iml" />
     </modules>
   </component>
