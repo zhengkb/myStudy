@@ -10,7 +10,8 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/zhengkb/mystudy
+          uri: https://github.com/zhengkb/myStudy
+          search-paths: /blob/master
 #          uri: https://git.oschina.net/chrywhy/test
 #          searchPaths: spring-cloud/helloworldConfig
   application:
