@@ -1,0 +1,4 @@
+2020/02/27 22:43
+在使用nio读取和写入数据时最关键的时channel以及buffer
+buffer作为数据存储的临时块（数据存储）
+channel作为一种通道连接channel以及buffer可以将buffer中的数据读取到channel中并通过channel写入文件或者输出到控制台当中
