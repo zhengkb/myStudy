@@ -52,7 +52,7 @@ public class GroupChatServer {
                         socketChannel.register(selector, SelectionKey.OP_READ);
                     }
 
-                    if (selectionKey.isReadable()) {
+                    if (selectionKey.isValid() && selectionKey.isReadable()) {
                         chat(selectionKey);
                     }
 
