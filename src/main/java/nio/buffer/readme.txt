@@ -34,6 +34,7 @@ channel作为一种通道连接channel以及buffer可以将buffer中的数据读
 读取读事件(isreadable())
 获取输入数据，输出
 
+https://blog.csdn.net/sunboylife/article/details/89527461
 
 
 
