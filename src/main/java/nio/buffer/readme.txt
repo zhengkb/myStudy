@@ -55,7 +55,13 @@ https://blog.csdn.net/sunboylife/article/details/89527461
 (4)当有事件发生时，subReactor会调用对应的handler进行处理
 (5)handler通过read读取数据，分配给对应的worker线程进行业务处理，并返回结果
 (6)handler接收到返回结果之后，将结果发送给client
-(7)reactor主线程可以有多个subReactor
+(7)reactor主线程可以有多个subReactor（子线程）
+方案优缺点：
+优点：
+(1)父子线程之间职责明确，父线程只需要接收新的连接，子线程完成后续的业务逻辑处理
+(2)数据交互简单,Reactor主线程只需要把连接传给子线程，子线程无需返回数据
+缺点：编程复杂度高
+
 
 
 
