@@ -48,5 +48,14 @@ https://blog.csdn.net/sunboylife/article/details/89527461
 优点：充分利用多核cpu的处理能力
 缺点：多线程数据共享和访问比较复杂，reactor本身只有一个线程在处理连接请求，在高并发场景还是会出现瓶颈
 
+主从reactor多线程
+(1)Reactor主线程MainReactor对象通过select监听连接事件，收到连接事件后通过Acceptor处理连接事件
+(2)当Acceptor处理完连接之后，Mainreactor将连接分配给SubReactor
+(3)subReactor将连接加入到连接队列进行监听并创建handler进行各种事件的处理
+(4)当有事件发生时，subReactor会调用对应的handler进行处理
+(5)handler通过read读取数据，分配给对应的worker线程进行业务处理，并返回结果
+(6)handler接收到返回结果之后，将结果发送给client
+(7)reactor主线程可以有多个subReactor
+
 
 
