@@ -36,5 +36,17 @@ channel作为一种通道连接channel以及buffer可以将buffer中的数据读
 
 https://blog.csdn.net/sunboylife/article/details/89527461
 
+2020/03/03 21:57
+单reactor多线程
+(1)reactor对象通过select监控客户端请求，收到事件后通过dispatch进行分发
+(2)如果是建立连接请求，则Acceptor通过accept处理连接请求，随后创建一个handler对象处理完成连接后的事件
+(3)如果不是连接请求，则由reactor分发调用对应的handler进行处理
+(4)handler只负责响应事件，不做具体的业务处理，通过read读取的数据调用worker线程池的某个线程进行处理
+(5)worker会分配对应线程进行处理，并将处理结果返回给handler
+(6)handler接收处理结果调用send将记过返回给client
+方案优缺点：
+优点：充分利用多核cpu的处理能力
+缺点：多线程数据共享和访问比较复杂，reactor本身只有一个线程在处理连接请求，在高并发场景还是会出现瓶颈
+
 
 
