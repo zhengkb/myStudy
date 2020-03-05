@@ -6,8 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="configureServer" />
-        <module name="EurekaClient" />
+        <module name="nettyStudy" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -15,6 +14,7 @@
       <module name="configureServer" target="1.8" />
       <module name="EurekaClient" target="1.8" />
       <module name="helloworldeurekaclient" target="1.8" />
+      <module name="nettyStudy" target="1.8" />
       <module name="sprcld" target="1.8" />
     </bytecodeTargetLevel>
   </component>

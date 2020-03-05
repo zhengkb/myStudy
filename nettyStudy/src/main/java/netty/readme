@@ -1,0 +1,35 @@
+2020/03/05 23:36
+Netty核心组件
+BootStrap、ServerBotstrap
+一个netty应用常由一个Bootstrap开始，主要作用是配置整个Netty程序，串联各个组件，ServerBootstrap是服务器端引导类，BootStrap是客户端程序引导类
+childhandler和handler之间的区别：前者的handler对应workergroup，后者则是对应bossgroup
+
+Future和ChannelFuture
+Netty中US哦呦的io操作都是异步的，不能立刻得知消息是否被正确处理。但是可以过一会等他执行完成或者直接注册一个监听，具体实现就是通过future和channelfuture，
+他们可以注册一个监听，当操作成功执行或者失败时监听会走自动触发注册的监听事件
+
+Channel
+（1）Netty网络通信的组件，能够用于执行网络io操作
+（2）通过channel科获得当前网络连接的通道状态以及配置参数
+（3）channel提供异步的网络io操作（如建立连接、读写、绑定端口）
+（4）调用立即返回一个channelfuture实例，通过注册监听器到channelfuture上，可以在io操作成功、失败或者却小时毁掉通知调用方
+（5）支持关联io操作对应的处理程序，不同协议、不同阻塞类型的连接都有不同的channel类型与之对应
+常用channel类型：
+NioSocketChannel,异步的客户端TCP socket连接
+NioServerSocketChannel，异步的服务端TCP Socket连接
+BuiDatagramChannel,异步的UDP连接
+NioSctpChannel,异步的客户端Sctp连接
+NioSctpServerChannel,异步的Sctp服务端连接，这些通道涵盖了UDP和TCP网络io以及挖恩建io
+
+Selector
+Netty基于Selector对象实现io多路复用，通过selector一个线程可以监听多个连接的channel事件
+当向一个Selector中注册channel后，selector内部的机制就可以自动不断查询(Select)这些注册的channel是否有已就绪的io事件，这样程序就可以简单地使用一个线程高效管理多个channel
+
+ChannelHandler及其实现类
+inbound：处理入站io
+outbound:处理出站io
+channelPipeline提供了channelhandler链
+
+Pipeline和channelpipeline
+channelPipeline是一个handler的集合，它负责处理和拦截inbound或者outbound的事件和操作，相当于贯穿netty的链
+内部维护了一个双向链表
