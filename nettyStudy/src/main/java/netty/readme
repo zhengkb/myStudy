@@ -5,7 +5,7 @@ BootStrap、ServerBotstrap
 childhandler和handler之间的区别：前者的handler对应workergroup，后者则是对应bossgroup
 
 Future和ChannelFuture
-Netty中US哦呦的io操作都是异步的，不能立刻得知消息是否被正确处理。但是可以过一会等他执行完成或者直接注册一个监听，具体实现就是通过future和channelfuture，
+Netty中io操作都是异步的，不能立刻得知消息是否被正确处理。但是可以过一会等他执行完成或者直接注册一个监听，具体实现就是通过future和channelfuture，
 他们可以注册一个监听，当操作成功执行或者失败时监听会走自动触发注册的监听事件
 
 Channel
