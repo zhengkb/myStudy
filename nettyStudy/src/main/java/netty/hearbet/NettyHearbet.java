@@ -10,6 +10,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.timeout.IdleStateHandler;
+import netty.hearbet.handler.NettyHearbetServerHandler;
 
 import java.util.concurrent.TimeUnit;
 
@@ -35,7 +36,7 @@ public class NettyHearbet {
                              * 当IdleStateEvent触发之后就会传给管道的下一个handler去进行处理（通过会调触发下一个handler的userEventTrigger方法）
                              * */
                             pipeline.addLast(new IdleStateHandler(3,5,7, TimeUnit.SECONDS))
-                                    .addLast(null);
+                                    .addLast(new NettyHearbetServerHandler());
                         }
                     });
             ChannelFuture channelFuture = serverBootstrap.bind(8080).sync();
