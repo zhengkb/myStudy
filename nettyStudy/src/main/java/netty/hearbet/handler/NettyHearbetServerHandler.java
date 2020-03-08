@@ -11,15 +11,20 @@ public class NettyHearbetServerHandler extends ChannelInboundHandlerAdapter {
             IdleStateEvent idleStateEvent = (IdleStateEvent) evt;
             switch (idleStateEvent.state()) {
                 case READER_IDLE:
-                    System.out.println("这是一个读事件");
+                    System.out.println("这是一个读超时事件");
                     break;
                 case WRITER_IDLE:
-                    System.out.println("这是一个写事件");
+                    System.out.println("这是一个写超时事件");
                     break;
                 case ALL_IDLE:
-                    System.out.println("这是一个读写事件");
+                    System.out.println("这是一个读写超时事件");
                     break;
             }
         }
+    }
+
+    @Override
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("有连接建立：" + ctx.channel().remoteAddress());
     }
 }
