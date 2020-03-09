@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Thread/Thread.iml" filepath="$PROJECT_DIR$/Thread/Thread.iml" />
+      <module fileurl="file://$PROJECT_DIR$/algorithm/algorithm.iml" filepath="$PROJECT_DIR$/algorithm/algorithm.iml" />
       <module fileurl="file://$PROJECT_DIR$/nettyStudy/nettyStudy.iml" filepath="$PROJECT_DIR$/nettyStudy/nettyStudy.iml" />
       <module fileurl="file://$PROJECT_DIR$/sprcld.iml" filepath="$PROJECT_DIR$/sprcld.iml" />
     </modules>
