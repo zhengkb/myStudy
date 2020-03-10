@@ -19,7 +19,7 @@ public class InsertSort {
 
     public static int[] sort(int[] arrs) {
         for (int i = 1; i < arrs.length; i++) {
-            for (int j = i; j > 0; j--) {
+            for (int j = i-1; j > 0; j--) {
                 if (arrs[j] < arrs[j - 1]) {
                     int temp = arrs[j - 1];
                     arrs[j - 1] = arrs[j];
