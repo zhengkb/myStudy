@@ -1,5 +1,8 @@
 package sort;
 
+import jdk.nashorn.internal.objects.annotations.Getter;
+import jdk.nashorn.internal.objects.annotations.Setter;
+
 /**
  * 冒泡排序
  * 每次将最大的数排在末尾

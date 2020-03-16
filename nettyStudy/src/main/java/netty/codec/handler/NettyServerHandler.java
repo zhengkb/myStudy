@@ -1,6 +1,5 @@
 package netty.codec.handler;
 
-import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
@@ -14,8 +13,11 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
      */
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        ByteBuf byteBuf = (ByteBuf) msg;
-        System.out.println("客户端发送的消息是：" + byteBuf.toString(CharsetUtil.UTF_8));
+//        ByteBuf byteBuf = (ByteBuf) msg;
+//        System.out.println("客户端发送的消息是：" + byteBuf.toString(CharsetUtil.UTF_8));
+        //读取studentpojo.studen
+//        StudentPOJO.Student student = (StudentPOJO.Student) msg;
+//        System.out.println("客户端发送的数据：id= " + student.getId() + ",name = " + student.getName());
     }
 
     /**

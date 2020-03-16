@@ -8,6 +8,7 @@ import io.netty.channel.ChannelPipeline;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import netty.codec.handler.NettyServerHandler;
 
 public class NettyServer {
@@ -25,12 +26,14 @@ public class NettyServer {
                         @Override
                         protected void initChannel(SocketChannel socketChannel) throws Exception {
                             ChannelPipeline pipeline = socketChannel.pipeline();
+                            //在pipeline加入protobuf的decoder
+//                            pipeline.addLast("decoder", new ProtobufDecoder(StudentPOJO.Student.getDefaultInstance()));
                             pipeline.addLast(new NettyServerHandler());
                         }
                     });
 
             System.out.println("服务器启动");
-            ChannelFuture channelFuture = bootstrap.bind(6668).sync();
+            ChannelFuture channelFuture = bootstrap.bind(8080).sync();
             channelFuture.channel().closeFuture().sync();
 
         } finally {
