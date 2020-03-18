@@ -7,6 +7,7 @@ import io.netty.channel.ChannelPipeline;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import netty.inorouthandler.coder.MyByteToLongDecoder;
 import netty.inorouthandler.coder.MyLongToByteEncoder;
 import netty.inorouthandler.handler.MyServerHandler;
 
@@ -23,7 +24,7 @@ public class MyServer {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
                             ChannelPipeline pipeline = ch.pipeline();
-                            pipeline.addLast(new MyLongToByteEncoder())//入站的handler进行解码
+                            pipeline.addLast(new MyByteToLongDecoder())//入站的handler进行解码
                                     .addLast(new MyServerHandler()) //自定义handler处理业务逻辑
                             ;
                         }
