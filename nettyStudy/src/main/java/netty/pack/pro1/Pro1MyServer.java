@@ -1,4 +1,4 @@
-package netty.inorouthandler.service;
+package netty.pack.pro1;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -7,12 +7,9 @@ import io.netty.channel.ChannelPipeline;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import netty.inorouthandler.coder.MyBtyeToLongDecoder2;
-import netty.inorouthandler.coder.MyByteToLongDecoder;
-import netty.inorouthandler.coder.MyLongToByteEncoder;
-import netty.inorouthandler.handler.MyServerHandler;
+import netty.pack.handler.Pro1MyServerHandler;
 
-public class MyServer {
+public class Pro1MyServer {
     public static void main(String[] args) throws InterruptedException {
         NioEventLoopGroup bossGroup = new NioEventLoopGroup();
         NioEventLoopGroup workerGroup = new NioEventLoopGroup();
@@ -21,16 +18,14 @@ public class MyServer {
             ServerBootstrap serverBootstrap = new ServerBootstrap();
             serverBootstrap.group(bossGroup, workerGroup)
                     .channel(NioServerSocketChannel.class)
-                    .handler(new ChannelInitializer<SocketChannel>() {
+                    .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
                             ChannelPipeline pipeline = ch.pipeline();
-                            pipeline.addLast(new MyBtyeToLongDecoder2())//入站的handler进行解码
-                                    .addLast(new MyServerHandler()) //自定义handler处理业务逻辑
-                            ;
+                            pipeline.addLast(new Pro1MyServerHandler());
                         }
                     });
-            ChannelFuture channelFuture = serverBootstrap.bind(7000).sync();
+            ChannelFuture channelFuture = serverBootstrap.bind(8088).sync();
             channelFuture.channel().closeFuture().sync();
         } finally {
             bossGroup.shutdownGracefully();
